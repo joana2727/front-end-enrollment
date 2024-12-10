@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admin.navbar')
 
 @section('content')
 <!-- Dashboard Stats -->

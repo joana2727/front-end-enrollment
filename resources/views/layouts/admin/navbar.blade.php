@@ -1,4 +1,3 @@
-<!-- resources/views/layouts/admin.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +9,12 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="">
+<body class="bg-light-gray">
     <div class="flex">
-        <!-- Sidebar -->
-        <div class="w-[8rem] bg-primary text-white min-h-screen flex flex-col items-center justify-between py-6 rounded-xl">
-            <!-- Top Section -->
+        <!-- Navbar -->
+        <div
+            class="w-[8rem] bg-primary text-white min-h-screen flex flex-col items-center justify-between py-6 rounded-xl">
+            <!-- Upper Part of Navbar -->
             <div class="flex flex-col items-center">
                 <!-- Logo -->
                 <div class="mb-6">
@@ -22,17 +22,16 @@
                     <p class="text-md mt-2 text-center font-semibold font-poppins">Bacoor</p>
                 </div>
 
-                <!-- Icons with Labels -->
+                <!-- Navbar Links with Icons -->
                 <ul class="space-y-8">
-                    <!-- Home Icon -->
+
                     <li class="flex flex-col items-center group">
                         <img src="{{ asset('assets/dashboard.svg') }}" alt="Bacoor Logo"
                             class="h-icon w-icon ml-4 mr-4 group-hover:scale-110 transition-transform duration-200 ease-in-out">
-                            <span
-                            class="text-xs mt-1 text-center font-semibold font-poppins group-hover:scale-125 transition-all duration-200 ease-in-out">Home</span>
+                        <span
+                            class="text-xs mt-1 text-center font-semibold font-poppins group-hover:scale-125 transition-all duration-200 ease-in-out">Dashboard</span>
                     </li>
 
-                    <!-- Users Icon -->
                     <li class="flex flex-col items-center group">
                         <img src="{{ asset('assets/users.svg') }}" alt="Bacoor Logo"
                             class="h-icon w-icon ml-4 mr-4 group-hover:scale-110 transition-transform duration-200 ease-in-out">
@@ -42,9 +41,9 @@
                 </ul>
             </div>
 
-            <!-- Logout Button -->
+            <!-- Bottom Part of Navbar -->
             <div class="flex flex-col items-center">
-                <button class="flex items-center space-x-2 group"> <!-- Added group class to the button -->
+                <button class="flex items-center space-x-2 group"> 
                     <img src="{{ asset('assets/signout.svg') }}" alt="Signout Icon"
                         class="h-icon w-icon group-hover:scale-110 transition-transform duration-200 ease-in-out">
                     <span
@@ -54,14 +53,15 @@
 
         </div>
 
-        <!-- Main Content -->
+        <!-- Header and Main Content Area -->
         <div class="flex-1 bg-light-gray">
-            <!-- Header -->
+
+            <!-- Header Part -->
             <header class="bg-light-gray shadow-big p-4">
-                <h1 class="text-2xl font-bold">Dashboard</h1>
+                <h1 class="text-2xl font-bold">Hello [Username]</h1>
             </header>
 
-            <!-- Content Area -->
+            <!-- Area Where Main Content will be Called -->
             <main class="p-6">
                 @yield('content')
             </main>
