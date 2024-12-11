@@ -29,4 +29,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
 });
 
+Route::get('/registar-dashboard', function () {
+    return view('registar.registar-dashboard');
+})->name('registar.dashboard');
+
 require __DIR__.'/auth.php';
