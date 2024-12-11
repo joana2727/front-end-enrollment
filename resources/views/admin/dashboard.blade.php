@@ -38,30 +38,46 @@
     <!-- Title and View All Button -->
     <div class="flex justify-between items-center mb-4">
         <h2 class="font-table-header text-xl">Recently Added Users</h2>
-        <button class="text-sm text-primary font-semibold border border-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white">View All</button>
+        <button class="text-sm text-light bg-primary font-semibold border px-4 py-2 rounded-lg hover:scale-105 transition-transform duration-200 ease-in-out">View All</button>
+
     </div>
 
     <!-- Table Container with limited width to the screen -->
     <div class="overflow-x-auto w-full">
         <table class="min-w-full bg-white shadow-sm rounded-lg">
             <thead>
-                <tr>
-                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">ID</th>
-                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Username</th>
-                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Email</th>
-                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Role</th>
-                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Date Registered</th>
-                </tr>
+            <tr class="bg-light-gray">
+                <th class="px-6 py-3 text-left text-sm font-bold text-gray-600">User Id</th>
+                <th class="px-6 py-3 text-left text-sm font-bold text-gray-600">Name</th>
+                <th class="px-6 py-3 text-left text-sm font-bold text-gray-600">Email</th>
+            <th class="px-6 py-3 text-left text-sm font-bold text-gray-600">User Type</th>
+            </tr>
             </thead>
             <tbody>
-                <tr class="hover:bg-gray-100">
-                    <td class="px-6 py-4 text-sm text-gray-600">1</td>
-                    <td class="px-6 py-4 text-sm text-gray-600">johndoe</td>
-                    <td class="px-6 py-4 text-sm text-gray-600">johndoe@example.com</td>
-                    <td class="px-6 py-4 text-sm text-gray-600">Admin</td>
-                    <td class="px-6 py-4 text-sm text-gray-600">2022-01-01</td>
+            <tr class="hover:bg-gray-100 border-b border-border-color ">
+                  <td class="px-6 py-4 text-sm text-gray-600">202401</td>
+                <td class="px-6 py-4 text-sm text-gray-600">Joana Garcia</td>
+                <td class="px-6 py-4 text-sm text-gray-600">joana272@example.com</td>   
+                <td class="px-6 py-4 text-sm text-gray-600">Admin</td>
                 </tr>
-                <!-- Repeat rows for other data -->
+                <tr class="hover:bg-gray-100 border-b border-border-color ">
+                  <td class="px-6 py-4 text-sm text-gray-600">202401</td>
+                <td class="px-6 py-4 text-sm text-gray-600">Joana Garcia</td>
+                <td class="px-6 py-4 text-sm text-gray-600">joana272@example.com</td>
+                <td class="px-6 py-4 text-sm text-gray-600">Admin</td>
+                </tr>
+                <tr class="hover:bg-gray-100 border-b border-border-color ">
+                  <td class="px-6 py-4 text-sm text-gray-600">202401</td>
+                <td class="px-6 py-4 text-sm text-gray-600">Joana Garcia</td>
+                <td class="px-6 py-4 text-sm text-gray-600">joana272@example.com</td>
+                <td class="px-6 py-4 text-sm text-gray-600">Admin</td>
+                </tr>
+                <tr class="hover:bg-gray-100 border-b border-border-color ">
+                  <td class="px-6 py-4 text-sm text-gray-600">202401</td>
+                <td class="px-6 py-4 text-sm text-gray-600">Joana Garcia</td>
+                <td class="px-6 py-4 text-sm text-gray-600">joana272@example.com</td>
+                <td class="px-6 py-4 text-sm text-gray-600">Admin</td>
+                </tr>
             </tbody>
         </table>
     </div>

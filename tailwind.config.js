@@ -20,6 +20,7 @@ export default {
         'moss-green': '#A2B568',
         'light-gray': '#f1f1f1',
         'gray': '#585858',
+        'border-color': '#E0E0E0' ,
       },
       spacing: {
         'logo': '5rem', // Custom size for logo (width & height)
