@@ -17,7 +17,7 @@
             <!-- Upper Part of Navbar -->
             <div class="flex flex-col items-center">
                 <!-- Logo -->
-                <div class="mb-6">
+                <div class="mb-12">
                     <img src="{{ asset('assets/cvsu.svg') }}" alt="Bacoor Logo" class="h-logo w-logo ml-4 mr-4">
                     <p class="text-md mt-2 text-center font-semibold font-poppins">Bacoor</p>
                 </div>
@@ -25,25 +25,29 @@
                 <!-- Navbar Links with Icons -->
                 <ul class="space-y-8">
 
-                    <li class="flex flex-col items-center group">
-                        <img src="{{ asset('assets/dashboard.svg') }}" alt="Bacoor Logo"
-                            class="h-icon w-icon ml-4 mr-4 group-hover:scale-110 transition-transform duration-200 ease-in-out">
-                        <span
-                            class="text-xs mt-1 text-center font-semibold font-poppins group-hover:scale-125 transition-all duration-200 ease-in-out">Dashboard</span>
-                    </li>
+                    <a href="{{ route(name: 'admin.dashboard') }}">
+                        <li class="flex flex-col items-center group mb-8">
+                            <img src="{{ asset('assets/dashboard.svg') }}" alt="Bacoor Logo"
+                                class="h-icon w-icon ml-4 mr-4 group-hover:scale-110 transition-transform duration-200 ease-in-out">
+                            <span
+                                class="text-xs mt-1 text-center font-semibold font-poppins group-hover:scale-125 transition-all duration-200 ease-in-out">Dashboard</span>
+                        </li>
+                    </a>
 
-                    <li class="flex flex-col items-center group">
-                        <img src="{{ asset('assets/users.svg') }}" alt="Bacoor Logo"
-                            class="h-icon w-icon ml-4 mr-4 group-hover:scale-110 transition-transform duration-200 ease-in-out">
-                        <span
-                            class="text-xs mt-1 text-center font-semibold font-poppins group-hover:scale-125 transition-all duration-200 ease-in-out">Users</span>
-                    </li>
+                    <a href="{{ route('admin.users') }}">
+                        <li class="flex flex-col items-center group mb-8">
+                            <img src="{{ asset('assets/users.svg') }}" alt="Bacoor Logo"
+                                class="h-icon w-icon ml-4 mr-4 group-hover:scale-110 transition-transform duration-200 ease-in-out">
+                            <span
+                                class="text-xs mt-1 text-center font-semibold font-poppins group-hover:scale-125 transition-all duration-200 ease-in-out">Users</span>
+                        </li>
+                    </a>
                 </ul>
             </div>
 
             <!-- Bottom Part of Navbar -->
             <div class="flex flex-col items-center">
-                <button class="flex items-center space-x-2 group"> 
+                <button class="flex items-center space-x-2 group">
                     <img src="{{ asset('assets/signout.svg') }}" alt="Signout Icon"
                         class="h-icon w-icon group-hover:scale-110 transition-transform duration-200 ease-in-out">
                     <span
