@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <title>Admin</title>
     @vite('resources/css/app.css')
 </head>
@@ -26,7 +27,7 @@
                 <!-- Navbar Links with Icons -->
                 <ul class="space-y-8">
 
-                    <a href="{{ route(name: 'admin.dashboard') }}">
+                    <a href="{{ route(name: 'department.dashboard') }}">
                         <li class="flex flex-col items-center group mb-8">
                             <img src="{{ asset('assets/dashboard.svg') }}" alt="Bacoor Logo"
                                 class="h-icon w-icon ml-4 mr-4 group-hover:scale-110 transition-transform duration-200 ease-in-out">
@@ -35,14 +36,23 @@
                         </li>
                     </a>
 
-                    <a href="{{ route('admin.users') }}">
-                        <li class="flex flex-col items-center group mb-8">
-                            <img src="{{ asset('assets/users.svg') }}" alt="Bacoor Logo"
-                                class="h-icon w-icon ml-4 mr-4 group-hover:scale-110 transition-transform duration-200 ease-in-out">
-                            <span
-                                class="text-xs mt-1 text-center font-semibold font-poppins group-hover:scale-125 transition-all duration-200 ease-in-out">Users</span>
-                        </li>
-                    </a>
+                <a href="{{ route('department.instructors') }}">
+                <li class="flex flex-col items-center group mb-8">
+                    <img src="{{ asset('assets/users.svg') }}" alt="Instructors Icon"
+                        class="h-icon w-icon ml-4 mr-4 group-hover:scale-110 transition-transform duration-200 ease-in-out">
+                    <span
+                        class="text-xs mt-1 text-center font-semibold font-poppins group-hover:scale-125 transition-all duration-200 ease-in-out">Instructors</span>
+                </li>
+            </a>
+            <a href="{{ route('department.courses') }}">
+                <li class="flex flex-col items-center group mb-8">
+                    <img src="{{ asset('assets/bookmark.svg') }}" alt="Courses Icon"
+                        class="h-icon w-icon ml-4 mr-4 group-hover:scale-110 transition-transform duration-200 ease-in-out">
+                    <span
+                        class="text-xs mt-1 text-center font-semibold font-poppins group-hover:scale-125 transition-all duration-200 ease-in-out">Courses</span>
+                </li>
+            </a>
+
                 </ul>
             </div>
 

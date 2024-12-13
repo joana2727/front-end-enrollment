@@ -33,4 +33,21 @@ Route::get('/registar-dashboard', function () {
     return view('registar.registar-dashboard');
 })->name('registar.dashboard');
 
+
+Route::prefix('department')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('department.dep-dashboard');
+    })->name('department.dashboard');
+
+    Route::get('/instructors', function () {
+        return view('department.instructors');
+    })->name('department.instructors');
+
+    Route::get('/courses', function () {
+        return view('department.courses');
+    })->name('department.courses');
+});
+
+
+
 require __DIR__.'/auth.php';

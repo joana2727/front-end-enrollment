@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructors & Courses Count</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <!-- Main Container -->
+  <div class="bg-gray-50 rounded-lg shadow-md p-6 flex space-x-6">
+    <!-- Instructors Count Section -->
+    <div class="bg-white rounded-lg shadow-md p-6 w-[500px] flex flex-row items-center">
+      <!-- Left Section -->
+      <div class="w-1/2">
+        <h2 class="text-lg font-semibold text-gray-700">Instructors Count</h2>
+        <div class="flex items-center mt-4">
+          <span class="text-4xl font-bold text-gray-800" id="instructors-total">0</span>
+        </div>
+        <!-- Labels -->
+        <div class="mt-6">
+          <div class="flex items-center space-x-2">
+            <div class="w-4 h-4 bg-green-400 rounded"></div>
+            <span class="text-sm text-gray-600">IT</span>
+          </div>
+          <div class="flex items-center space-x-2 mt-2">
+            <div class="w-4 h-4 bg-lime-600 rounded"></div>
+            <span class="text-sm text-gray-600">CS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Section: Pie Chart -->
+      <div class="w-1/2 flex justify-center">
+        <canvas id="instructorsChart" width="200" height="200"></canvas>
+      </div>
+    </div>
+
+    <!-- Courses Count Section -->
+    <div class="bg-white rounded-lg shadow-md p-6 w-[500px] flex flex-row items-center">
+      <!-- Left Section -->
+      <div class="w-1/2">
+        <h2 class="text-lg font-semibold text-gray-700">Courses Count</h2>
+        <div class="flex items-center mt-4">
+          <span class="text-4xl font-bold text-gray-800" id="courses-total">0</span>
+        </div>
+        <!-- Labels -->
+        <div class="mt-6">
+          <div class="flex items-center space-x-2">
+            <div class="w-4 h-4 bg-blue-400 rounded"></div>
+            <span class="text-sm text-gray-600">Online</span>
+          </div>
+          <div class="flex items-center space-x-2 mt-2">
+            <div class="w-4 h-4 bg-yellow-400 rounded"></div>
+            <span class="text-sm text-gray-600">Offline</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Section: Pie Chart -->
+      <div class="w-1/2 flex justify-center">
+        <canvas id="coursesChart" width="200" height="200"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sample data for Instructors Count
+    const instructorsData = {
+      IT: 80,
+      CS: 56,
+    };
+
+    // Sample data for Courses Count
+    const coursesData = {
+      Online: 320,
+      Offline: 440,
+    };
+
+    // Calculate totals
+    const instructorsTotal = Object.values(instructorsData).reduce((sum, value) => sum + value, 0);
+    const coursesTotal = Object.values(coursesData).reduce((sum, value) => sum + value, 0);
+
+    // Update totals in the DOM
+    document.getElementById("instructors-total").textContent = instructorsTotal;
+    document.getElementById("courses-total").textContent = coursesTotal;
+
+    // Draw Pie Charts
+    function drawPieChart(canvasId, data, colors) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext("2d");
+
+      const total = Object.values(data).reduce((sum, value) => sum + value, 0);
+      let startAngle = 0;
+
+      Object.entries(data).forEach(([key, value], index) => {
+        const sliceAngle = (value / total) * 2 * Math.PI;
+
+        // Draw slice
+        ctx.beginPath();
+        ctx.moveTo(canvas.width / 2, canvas.height / 2); // Center of the chart
+        ctx.arc(
+          canvas.width / 2,
+          canvas.height / 2,
+          canvas.width / 2 - 10, // Adjust for padding
+          startAngle,
+          startAngle + sliceAngle
+        );
+        ctx.closePath();
+        ctx.fillStyle = colors[index];
+        ctx.fill();
+
+        startAngle += sliceAngle;
+      });
+    }
+
+    // Colors for each chart
+    const instructorsColors = ["#34d399", "#65a30d"];
+    const coursesColors = ["#60a5fa", "#facc15"];
+
+    // Draw both charts
+    drawPieChart("instructorsChart", instructorsData, instructorsColors);
+    drawPieChart("coursesChart", coursesData, coursesColors);
+  </script>
+</body>
+</html>
