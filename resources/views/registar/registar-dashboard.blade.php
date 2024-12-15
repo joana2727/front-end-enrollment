@@ -2,9 +2,10 @@
 
 @section('content')
 
-<!-- Dashboard Stats -->
+<!-- Student Count Per Status -->
 <div class="flex flex-wrap gap-4 mb-5 p-2 bg-light-gray rounded-2xl mx-auto mt-1">
-    <!-- Card 1 -->
+
+    <!-- Regular -->
     <div class="bg-yellow shadow-small rounded-2xl p-6 flex-1 flex items-center justify-between relative">
         <div>
             <h3 class="text-lg font-semibold">Regular</h3>
@@ -13,7 +14,7 @@
         <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-black"></div>
     </div>
 
-    <!-- Card 2 -->
+    <!-- Irregular -->
     <div class="bg-lime-green shadow-small rounded-2xl p-6 flex-1 flex items-center justify-between relative">
         <div>
             <h3 class="text-lg font-semibold">Irregular</h3>
@@ -22,7 +23,7 @@
         <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-black"></div>
     </div>
 
-    <!-- Card 3 -->
+    <!-- Transferee -->
     <div class="bg-moss-green shadow-small rounded-2xl p-6 flex-1 flex items-center justify-between relative">
         <div>
             <h3 class="text-lg font-semibold">Transferee</h3>
@@ -31,7 +32,7 @@
         <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-black"></div>
     </div>
 
-    <!-- Card 4 -->
+    <!-- Returnee -->
     <div class="bg-lime-green shadow-small rounded-2xl p-6 flex-1 flex items-center justify-between relative">
         <div>
             <h3 class="text-lg font-semibold">Returnee</h3>
@@ -41,11 +42,12 @@
     </div>
 </div>
 
-<!-- Main Content Layout -->
+<!-- Student Count, Table, and Pie Chart Section -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <!-- Left Column: Totals and Sections -->
+
+    <!-- Left Part - Student Count and Sections Table -->
     <div class="space-y-6">
-        <!-- Totals Section -->
+        <!-- Total Students per Course Container -->
         <div class="bg-white p-6 rounded-2xl shadow-small">
             <ul class="space-y-4">
                 <!-- Total Students -->
@@ -64,7 +66,6 @@
                         <span class="text-lg font-bold">1,522</span>
                     </div>
                 </li>
-
                 <!-- BS Computer Science -->
                 <li class="flex items-center justify-between">
                     <div class="flex items-center space-x-4">
@@ -81,7 +82,6 @@
                         <span class="text-lg font-bold">1,522</span>
                     </div>
                 </li>
-
                 <!-- BS Information Technology -->
                 <li class="flex items-center justify-between">
                     <div class="flex items-center space-x-4">
@@ -147,14 +147,13 @@
         </div>
     </div>
 
-  <!-- Right Column: Pie Chart -->
+  <!-- Pie Chart -->
 <div class="bg-white p-6 rounded-2xl shadow-small">
     <h3 class="text-lg font-bold text-gray-700 mb-4">Student Distribution</h3>
     <div class="flex justify-center items-center h-80">
         <canvas id="studentDistributionChart" class="w-full h-full object-contain rounded-lg"></canvas>
     </div>
-
-    <!-- Custom Legend for Labels -->
+    <!-- Legends -->
     <div class="flex justify-center mt-4 space-x-6" id="customLegend">
         <!-- Dynamic labels will be added here -->
     </div>

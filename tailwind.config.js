@@ -40,7 +40,7 @@ export default {
     forms,
     function ({ addComponents }) {
       addComponents({
-        '.font-table-header': {
+        '.font-header': {
           fontWeight: '600',
           color: '#164A41',
           fontSize: '1.6rem',
