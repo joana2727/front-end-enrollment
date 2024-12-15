@@ -15,11 +15,11 @@
         <div class="mt-6">
           <div class="flex items-center space-x-2">
             <div class="w-6 h-4 bg-lime-green rounded"></div>
-            <span class="text-sm text-gray-600">IT</span>
+            <span class="text-sm text-gray-600">Information Technology</span>
           </div>
           <div class="flex items-center space-x-2 mt-2">
           <div class="w-6 h-4 bg-moss-green rounded"></div>
-            <span class="text-sm text-gray-600">CS</span>
+            <span class="text-sm text-gray-600">Computer Science</span>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
     <div class="bg-white rounded-lg shadow-md p-6 items-center flex flex-row justify-between w-full">
       <!-- Left Section -->
       <div class="w-1/2">
-        <h2 class="text-lg font-semibold text-gray-700">Courses Count</h2>
+        <h2 class="text-lg font-bold text-gray-700 text-primary">Courses Count</h2>
         <div class="flex items-center mt-4">
           <span class="text-4xl font-bold text-gray-800" id="courses-total">0</span>
         </div>
@@ -80,7 +80,7 @@
         </thead>
         <tbody>
         <tr class="hover:bg-gray-100 border-b border-border-color ">
-              <td class="px-6 py-4 text-sm text-gray-600">01</td>
+            <td class="px-6 py-4 text-sm text-gray-600">01</td>
             <td class="px-6 py-4 text-sm text-gray-600">Edhan Belgica</td>
             <td class="px-6 py-4 text-sm text-gray-600">example@gmail.com</td>   
             <td class="px-6 py-4 text-sm text-gray-600">Computer Science</td>
@@ -116,14 +116,14 @@
   <script>
     // Sample data for Instructors Count
     const instructorsData = {
-      IT: 11,
-      CS: 22,
+      IT: 30,
+      CS: 30,
     };
 
     // Sample data for Courses Count
     const coursesData = {
-      Online: 29,
-      Offline: 23,
+      Online: 30,
+      Offline: 30,
     };
 
     // Calculate totals
