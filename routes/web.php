@@ -29,9 +29,18 @@ Route::prefix('admin')->group(function () {
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
 });
 
+
 Route::get('/registar-dashboard', function () {
-    return view('registar.registar-dashboard');
+    return view('registar.registar-dashboard'); // Ensure this matches your view file's location
 })->name('registar.dashboard');
+
+Route::get('/registar/students', function () {
+    return view('registar.students'); // Ensure this matches your view file's location
+})->name('registar.students');
+
+Route::get('/registar/issue-cor', function () {
+    return view('registar.issue-cor'); // Ensure this matches your view file's location
+})->name('registar.issue-cor');
 
 
 Route::prefix('department')->group(function () {
@@ -47,7 +56,6 @@ Route::prefix('department')->group(function () {
         return view('department.courses');
     })->name('department.courses');
 });
-
 
 
 require __DIR__.'/auth.php';

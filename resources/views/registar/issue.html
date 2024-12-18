@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar COR Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+        <!-- Header -->
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">Registrar COR Board</h1>
+
+        <!-- COR Form -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <!-- Student Dropdown -->
+            <label for="student-id" class="block text-sm font-bold text-gray-700 mb-2">Select Student ID:</label>
+            <select id="student-id" class="block w-full border border-gray-300 rounded-lg px-4 py-2 mb-4">
+                <option value="" disabled selected>Select ID</option>
+                <option value="20230001">20230001 - John Doe</option>
+                <option value="20230002">20230002 - Jane Smith</option>
+                <!-- Add more IDs as needed -->
+            </select>
+
+            <!-- Student Info -->
+            <div id="student-info" class="bg-gray-50 p-4 rounded-lg shadow-inner hidden">
+                <h2 class="text-lg font-bold text-gray-800 mb-2">Student Information</h2>
+                <p><strong>Name:</strong> <span id="student-name"></span></p>
+                <p><strong>Program:</strong> <span id="student-program"></span></p>
+                <p><strong>Year:</strong> <span id="student-year"></span></p>
+            </div>
+
+            <!-- Grade Entry -->
+            <div id="grade-entry" class="mt-6 hidden">
+                <h2 class="text-lg font-bold text-gray-800 mb-4">Enter Grades</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Subject 1:</label>
+                        <input type="text" id="subject1-grade" class="block w-full border border-gray-300 rounded-lg px-4 py-2" placeholder="Enter grade">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Subject 2:</label>
+                        <input type="text" id="subject2-grade" class="block w-full border border-gray-300 rounded-lg px-4 py-2" placeholder="Enter grade">
+                    </div>
+                </div>
+                <button onclick="submitGrades()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">Submit Grades</button>
+            </div>
+
+            <!-- PDF Export -->
+            <button id="export-pdf" onclick="exportToPDF()" class="mt-6 hidden bg-green-500 text-white px-4 py-2 rounded-lg">Export to PDF</button>
+        </div>
+    </div>
+
+    <script>
+        // Static Student Data
+        const students = {
+            "20230001": {
+                name: "John Doe",
+                program: "BSCS",
+                year: "1st Year",
+                grades: {
+                    subject1: "N/A",
+                    subject2: "N/A",
+                }
+            },
+            "20230002": {
+                name: "Jane Smith",
+                program: "BSIT",
+                year: "2nd Year",
+                grades: {
+                    subject1: "N/A",
+                    subject2: "N/A",
+                }
+            }
+        };
+
+        // Populate Student Info on Dropdown Change
+        document.getElementById('student-id').addEventListener('change', function () {
+            const studentId = this.value;
+            const student = students[studentId];
+
+            if (student) {
+                document.getElementById('student-info').classList.remove('hidden');
+                document.getElementById('student-name').innerText = student.name;
+                document.getElementById('student-program').innerText = student.program;
+                document.getElementById('student-year').innerText = student.year;
+
+                document.getElementById('grade-entry').classList.remove('hidden');
+                document.getElementById('export-pdf').classList.add('hidden'); // Hide PDF button until grades are submitted
+            }
+        });
+
+        // Submit Grades
+        function submitGrades() {
+            const studentId = document.getElementById('student-id').value;
+            if (!studentId) return alert("Select a student first!");
+
+            students[studentId].grades.subject1 = document.getElementById('subject1-grade').value || "N/A";
+            students[studentId].grades.subject2 = document.getElementById('subject2-grade').value || "N/A";
+
+            alert("Grades submitted successfully!");
+            document.getElementById('export-pdf').classList.remove('hidden'); // Show PDF button after submitting grades
+        }
+
+        // Export to PDF (Simulation)
+        function exportToPDF() {
+            const studentId = document.getElementById('student-id').value;
+            if (!studentId) return alert("Select a student first!");
+
+            const student = students[studentId];
+            const pdfContent = `
+                Certificate of Registration
+                ---------------------------
+                Name: ${student.name}
+                Program: ${student.program}
+                Year: ${student.year}
+                Grades:
+                - Subject 1: ${student.grades.subject1}
+                - Subject 2: ${student.grades.subject2}
+            `;
+
+            console.log("PDF Exported:\n", pdfContent); // For simulation, output to console
+            alert("PDF exported successfully!");
+        }
+    </script>
+</body>
+</html>
