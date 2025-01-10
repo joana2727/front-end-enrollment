@@ -4,17 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Admin</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <title>{{ $title ?? 'Default Title' }}</title>
+    <link rel="icon" href="{{ asset($favicon ?? 'assets/cvsu.svg') }}" type="image/svg+xml">
     @vite('resources/css/app.css')
 </head>
 
 <body class="bg-light-gray">
     <div class="flex">
-          <!-- Navbar -->
-          <div class="w-[14rem] h-screen bg-primary text-white fixed flex flex-col items-center justify-between py-6">
+        <!-- Navbar -->
+        <div class="w-[14rem] h-screen bg-primary text-white fixed flex flex-col items-center justify-between py-6">
     <!-- Upper Part of Navbar -->
     <div class="flex flex-col items-center w-full">
         <!-- Logo -->
@@ -23,32 +26,31 @@
             <p class="text-md mt-2 font-semibold font-poppins">Cavite State University Bacoor Campus</p>
         </div>
 
-                <!-- Navbar Links with Icons -->
-                  <!-- Navbar Links -->
-        <ul class="w-full">
+            <!-- Navbar Links -->
+            <ul class="w-full">
             <!-- Dashboard -->
-            <a href="{{ route('registar.dashboard') }}">
+            <a href="{{ route('student.dashboard') }}">
                 <li class="flex items-center w-full px-4 py-3 hover:bg-green-500 transition duration-200 ease-in-out">
                     <img src="{{ asset('assets/dashboard.svg') }}" alt="Dashboard Icon" class="h-icon w-icon mr-4">
                     <span class="text-sm font-semibold font-poppins">Dashboard</span>
                 </li>
             </a>
-            <!-- Students -->
-            <a href="{{ route('registar.students') }}">
+            <!-- Student Information -->
+            <a href="{{ route('student.information') }}">
                 <li class="flex items-center w-full px-4 py-3 hover:bg-green-500 transition duration-200 ease-in-out">
-                    <img src="{{ asset('assets/users.svg') }}" alt="Students Icon" class="h-icon w-icon mr-4">
-                    <span class="text-sm font-semibold font-poppins">Students</span>
+                    <img src="{{ asset('assets/user.svg') }}" alt="Student Information Icon" class="h-icon w-icon mr-4">
+                    <span class="text-sm font-semibold font-poppins">Student Information</span>
                 </li>
             </a>
-            <!-- Issue COR -->
-            <a href="{{ route('registar.issue-cor') }}">
+            <!-- View Status -->
+            <a href="{{ route('student.status') }}">
                 <li class="flex items-center w-full px-4 py-3 hover:bg-green-500 transition duration-200 ease-in-out">
-                    <img src="{{ asset('assets/file-blank.svg') }}" alt="Issue COR Icon" class="h-icon w-icon mr-4">
-                    <span class="text-sm font-semibold font-poppins">Issue COR</span>
+                    <img src="{{ asset('assets/file-blank.svg') }}" alt="View Status Icon" class="h-icon w-icon mr-4">
+                    <span class="text-sm font-semibold font-poppins">View Status</span>
                 </li>
             </a>
-         <!-- Logout -->
-         <a href="{{ route('logout') }}" onclick="openLogoutModal(event)">
+            <!-- Logout -->
+            <a href="{{ route('logout') }}" onclick="openLogoutModal(event)">
                 <li class="flex items-center w-full px-4 py-3 hover:bg-green-500 transition duration-200 ease-in-out">
                     <img src="{{ asset('assets/signout.svg') }}" alt="Signout Icon" class="h-icon w-icon mr-4">
                     <span class="text-sm font-semibold font-poppins">Logout</span>
@@ -58,19 +60,18 @@
     </div>
 </div>
 
-        
-    <!-- Content Area -->
-    <div class="ml-[14rem] flex-1 bg-light-gray">
-        <!-- Header Part -->
-        <header class="bg-light-gray shadow-big p-4">
-            <h1 class="text-2xl font-bold">Hello [Username]</h1>
-        </header>
+<!-- Content Area -->
+<div class="ml-[14rem] flex-1 bg-light-gray">
+    <!-- Header Part -->
+    <header class="bg-light-gray shadow-big p-4">
+        <h1 class="text-2xl font-bold">Hello [Username]</h1>
+    </header>
 
-        <!-- Main Content -->
-        <main class="p-6">
-            @yield('content')
-        </main>
-    </div>
+    <!-- Main Content -->
+    <main class="p-6">
+        @yield('content')
+    </main>
+</div>
 
 
     <!-- Logout Modal -->

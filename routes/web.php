@@ -2,12 +2,46 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Admin\AdminController;
+
+
+
+Route::post('/update-student-details', [StudentController::class, 'updateDetails'])->name('updateStudentDetails');
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// routes/web.php
+
+// Ensure the route points to the correct controller action
+Route::get('/students/status', [StudentController::class, 'status'])->name('students.status');
+
+
+// Route for the dashboard
+Route::get('/student-dashboard', function () {
+    return view('student.student-dashboard');
+})->name('student.dashboard');
+
+// Route for student information
+Route::get('/student-information', function () {
+    return view('student.student-information');
+})->name('student.information');
+
+// Route for student schedule
+Route::get('/student-status', function () {
+    return view('student.student-status');
+})->name('student.status');
+
+// Route for logout (example logout route)
+Route::get('/logout', function () {
+    // Add your logout logic here
+    return redirect('/login'); // Redirect to login page after logout
+})->name('logout');
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -56,6 +90,7 @@ Route::prefix('department')->group(function () {
         return view('department.courses');
     })->name('department.courses');
 });
+
 
 
 require __DIR__.'/auth.php';

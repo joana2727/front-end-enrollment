@@ -45,11 +45,9 @@
             <button
                 class="text-sm text-light bg-gray font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">Export
                 as Excel</button>
-            <button
-                class="text-sm text-light bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">
+                <button onclick="openModal()" class="bg-primary text-white px-4 py-2 rounded-lg">
                 <img src="{{ asset('assets/plus.svg') }}" alt="Plus Icon" class="h-5 w-5 inline-block mr-2">
-                Add Instructor
-            </button>
+                Add Insructor</button>
 
         </div>
     </div>
@@ -301,5 +299,141 @@
             <button class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-primary hover:text-light">Next</button>
         </div>
     </div>
+
+    <!-- Modal Section -->
+<div id="addInstructorModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white p-10 rounded-lg shadow-lg w-1/2">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg font-semibold text-primary text-left">Add Instructor</h2>
+            <button type="button" onclick="closeModal()" class="text-gray-600 hover:text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Form -->
+        <form>
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-2 gap-6">
+                <!-- Instructor ID -->
+                <div>
+                    <label for="instructorID" class="block text-sm font-medium text-dark mb-2">Instructor ID</label>
+                    <input id="instructorID" type="text" placeholder="Insert Instructor ID"
+                        class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <!-- Name -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-dark mb-2">Name</label>
+                    <input id="name" type="text" placeholder="Insert Full Name"
+                        class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <!-- Email Address -->
+                <div class="col-span-2">
+                    <label for="email" class="block text-sm font-medium text-dark mb-2">Email Address</label>
+                    <input id="email" type="email" placeholder="Insert Full Email Address"
+                        class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <!-- Mobile Number -->
+                <div>
+                    <label for="mobile" class="block text-sm font-medium text-dark mb-2">Mobile Number</label>
+                    <input id="mobile" type="text" placeholder="Insert Mobile Number"
+                        class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <!-- Role -->
+                <div>
+                    <label for="role" class="block text-sm font-medium text-dark mb-2">Role</label>
+                    <select id="role"
+                        class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option value="">Select Role</option>
+                        <option value="Instructor">Instructor</option>
+                        <option value="Assistant">Assistant</option>
+                        <option value="Staff">Staff</option>
+                    </select>
+                </div>
+                <!-- Address -->
+                <div class="col-span-2">
+                    <label for="address" class="block text-sm font-medium text-dark mb-2">Address</label>
+                    <textarea id="address" placeholder="Address..."
+                        class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                </div>
+            </div>
+
+            <div id="successModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <div class="bg-white p-6 rounded-lg shadow-lg w-1/3 text-center">
+                    <p class="text-gray-800 font-semibold mb-4">Instructor Successfully Added</p>
+                    <button onclick="closeModal()" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-600">OK</button>
+                </div>
+            </div>
+
+
+                        <div class="flex justify-end space-x-4 mt-8">
+                        <button type="button" onclick="clearAllInputs()"
+                    class="bg-red text-white px-10 h-8 rounded-lg hover:bg-red-600">Clear All</button>
+                    <button type="submit" onclick="showModal()" class="bg-primary text-white px-10 h-8 rounded-lg hover:bg-blue-600">Create</button>             
+                    </div>
+                </form>
+            </div>
+        </div>
+
+            <script>
+
+function clearAllInputs() {
+        // Select the form element
+        const form = document.querySelector("form");
+
+        // Clear all input, select, and textarea elements within the form
+        form.querySelectorAll("input, select, textarea").forEach((element) => {
+            if (element.type === "checkbox" || element.type === "radio") {
+                // Uncheck checkboxes and radio buttons
+                element.checked = false;
+            } else if (element.type === "file") {
+                // Clear file inputs
+                element.value = "";
+            } else {
+                // Clear text, number, email, etc.
+                element.value = "";
+            }
+        });
+    }
+
+             // Function to show the modal
+    function showModal() {
+        const modal = document.getElementById("successModal");
+        modal.classList.remove("hidden");
+    }
+
+    // Function to hide the modal
+    function closeModal() {
+        const modal = document.getElementById("successModal");
+        modal.classList.add("hidden");
+    }
+
+            function openModal() {
+                document.getElementById('addInstructorModal').classList.remove('hidden');
+            }
+
+            function closeModal() {
+                document.getElementById('addInstructorModal').classList.add('hidden');
+            }
+
+            function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const eyeOpen = document.getElementById("eyeOpen");
+        const eyeClosed = document.getElementById("eyeClosed");
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeOpen.classList.add("hidden");
+            eyeClosed.classList.remove("hidden");
+        } else {
+            passwordInput.type = "password";
+            eyeOpen.classList.remove("hidden");
+            eyeClosed.classList.add("hidden");
+        }
+    }
+        </script>
+
 
     @endsection

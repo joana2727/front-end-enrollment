@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        .table-container {
+            width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed; /* Ensures columns are equal width */
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+            word-wrap: break-word; /* Ensures text fits within cells */
+        }
+        th {
+            background-color: #f4f4f4;
+            position: sticky;
+            top: 0;
+        }
+        .subject {
+            color: #fff;
+            font-weight: bold;
+        }
+        .cosc200a {
+            background-color: #f39c12;
+        }
+        .cosc105 {
+            background-color: #27ae60;
+        }
+        .itec80 {
+            background-color: #34495e;
+        }
+        .cosc100 {
+            background-color: #e67e22;
+        }
+        .cosc111 {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 14%;">Time</th>
+                    <th style="width: 14%;">Monday</th>
+                    <th style="width: 14%;">Tuesday</th>
+                    <th style="width: 14%;">Wednesday</th>
+                    <th style="width: 14%;">Thursday</th>
+                    <th style="width: 14%;">Friday</th>
+                    <th style="width: 14%;">Saturday</th>
+                </tr>
+            </thead>
+            <tbody id="schedule-body">
+                <!-- Schedule will be generated here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const schedule = [
+            { subject: "COSC200A", day: "Monday", start: "7:00", end: "8:00", color: "cosc200a" },
+            { subject: "COSC105", day: "Monday", start: "11:00", end: "1:00", color: "cosc105" },
+            { subject: "ITEC80", day: "Tuesday", start: "3:00", end: "5:00", color: "itec80" },
+            { subject: "COSC100", day: "Friday", start: "7:00", end: "9:00", color: "cosc100" },
+            { subject: "COSC111", day: "Friday", start: "11:00", end: "1:00", color: "cosc111" },
+            { subject: "COSC105", day: "Saturday", start: "11:00", end: "1:00", color: "cosc105" }
+        ];
+
+        const timeSlots = [
+            "7:00", "7:30", "8:00", "8:30", "9:00", "9:30",
+            "10:00", "10:30", "11:00", "11:30", "12:00", "12:30",
+            "1:00", "1:30", "2:00", "2:30", "3:00", "3:30",
+            "4:00", "4:30", "5:00", "5:30", "6:00", "6:30",
+            "7:00", "7:30", "8:00", "8:30", "9:00"
+        ];
+
+
+        const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const scheduleBody = document.getElementById("schedule-body");
+
+        // Helper function to calculate row span based on time difference
+       // Helper function to calculate row span based on time difference
+        function calculateRowSpan(start, end) {
+            const startIndex = timeSlots.indexOf(start);
+            const endIndex = timeSlots.indexOf(end) + 1; // Include the end time in the span
+            return endIndex - startIndex;
+        }
+
+        // Generate the table rows
+        timeSlots.forEach((time, timeIndex) => {
+            const row = document.createElement("tr");
+
+            // Time column
+            const timeCell = document.createElement("td");
+            timeCell.textContent = time;
+            row.appendChild(timeCell);
+
+            // Day columns
+            days.forEach(day => {
+                const cell = document.createElement("td");
+
+                // Check if there's a subject for this time and day
+                const subject = schedule.find(
+                    s => s.day === day && s.start === time
+                );
+
+                if (subject) {
+                    cell.textContent = subject.subject;
+                    cell.className = `subject ${subject.color}`;
+                    cell.rowSpan = calculateRowSpan(subject.start, subject.end);
+
+                    // Skip cells covered by rowspan
+                    for (let i = 1; i < cell.rowSpan; i++) {
+                        const skipRow = scheduleBody.children[timeIndex + i];
+                        if (skipRow) skipRow.children[days.indexOf(day) + 1].remove();
+                    }
+                }
+
+                row.appendChild(cell);
+            });
+
+            scheduleBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

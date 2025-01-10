@@ -62,11 +62,9 @@
             <button
                 class="text-sm text-light bg-gray font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">Export
                 as Excel</button>
-            <button
-                class="text-sm text-light bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">
+                <button onclick="openModal()" class="bg-primary text-white px-4 py-2 rounded-lg">
                 <img src="{{ asset('assets/plus.svg') }}" alt="Plus Icon" class="h-5 w-5 inline-block mr-2">
-                Add Course
-            </button>
+                Add Course</button>
         </div>
 
     </div>
@@ -101,8 +99,8 @@
                                 <span class="material-icons text-lg">edit</span>
                             </a>
                             <!-- Delete Icon -->
-                            <a href="#" class="text-lime-green hover:text-red-500">
-                                <span class="material-icons text-lg">delete</span>
+                            <a href="#" class="text-lime-green hover:text-red-500" onclick="openDeleteModal()">
+                            <span class="material-icons text-lg">delete</span>
                             </a>
                         </div>
                     </td>
@@ -275,5 +273,161 @@
             <button class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-primary hover:text-light">Next</button>
         </div>
     </div>
+
+    <!-- Modal Section -->
+<div id="addCourseModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white p-10 rounded-lg shadow-lg w-1/2">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg font-semibold text-primary text-left">Add Course</h2>
+            <button type="button" onclick="closeModal()" class="text-gray-600 hover:text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Form -->
+        <form>
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-2 gap-6">
+                <!-- Course Code -->
+                <div>
+                    <label for="courseCode" class="block text-sm font-medium text-dark mb-2">Course Code</label>
+                    <input id="courseCode" type="text" placeholder="Insert Course Code"
+                        class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <!-- Course Title -->
+                <div>
+                    <label for="courseTitle" class="block text-sm font-medium text-dark mb-2">Course Title</label>
+                    <input id="courseTitle" type="text" placeholder="Insert Course Title"
+                        class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <!-- Total Credit Unit -->
+                <div>
+                    <label for="creditUnit" class="block text-sm font-medium text-dark mb-2">Total Credit Unit</label>
+                    <input id="creditUnit" type="text" placeholder="Insert Credit Unit"
+                        class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <!-- Department -->
+                <div>
+                    <label for="department" class="block text-sm font-medium text-dark mb-2">Department</label>
+                    <select id="department"
+                        class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm border-0 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option value="">Select Department</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Engineering">Engineering</option>
+                        <!-- Add more departments as needed -->
+                    </select>
+                </div>
+            </div>
+
+            <div id="successModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <div class="bg-white p-6 rounded-lg shadow-lg w-1/3 text-center">
+                    <p class="text-gray-800 font-semibold mb-4">Instructor Successfully Added</p>
+                    <button onclick="closeModal()" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-600">OK</button>
+                </div>
+            </div>
+
+
+                        <div class="flex justify-end space-x-4 mt-8">
+                        <button type="button" onclick="clearAllInputs()"
+                    class="bg-red text-white px-10 h-8 rounded-lg hover:bg-red-600">Clear All</button>
+                    <button type="submit" onclick="showModal()" class="bg-primary text-white px-10 h-8 rounded-lg hover:bg-blue-600">Create</button>             
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+                    <!-- Delete Confirmation Modal -->
+        <div id="deleteModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-1/3 text-center">
+                <p class="text-dark font-semibold mb-4">Are you sure you want to remove this course?</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="confirmDelete()" class="bg-red text-white px-4 py-2 rounded-lg hover:bg-red-600">Delete</button>
+                    <button onclick="closeModal()" class=" bg-primary text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-400">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+            <script>
+
+function clearAllInputs() {
+        // Select the form element
+        const form = document.querySelector("form");
+
+        // Clear all input, select, and textarea elements within the form
+        form.querySelectorAll("input, select, textarea").forEach((element) => {
+            if (element.type === "checkbox" || element.type === "radio") {
+                // Uncheck checkboxes and radio buttons
+                element.checked = false;
+            } else if (element.type === "file") {
+                // Clear file inputs
+                element.value = "";
+            } else {
+                // Clear text, number, email, etc.
+                element.value = "";
+            }
+        });
+    }
+
+             // Function to show the modal
+    function showModal() {
+        const modal = document.getElementById("successModal");
+        modal.classList.remove("hidden");
+    }
+
+    // Function to hide the modal
+    function closeModal() {
+        const modal = document.getElementById("successModal");
+        modal.classList.add("hidden");
+    }
+
+            function openModal() {
+                document.getElementById('addCourseModal').classList.remove('hidden');
+            }
+
+            function closeModal() {
+                document.getElementById('addCourseModal').classList.add('hidden');
+            }
+
+            function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const eyeOpen = document.getElementById("eyeOpen");
+        const eyeClosed = document.getElementById("eyeClosed");
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeOpen.classList.add("hidden");
+            eyeClosed.classList.remove("hidden");
+        } else {
+            passwordInput.type = "password";
+            eyeOpen.classList.remove("hidden");
+            eyeClosed.classList.add("hidden");
+        }
+    }
+
+            // Function to open the delete confirmation modal
+        function openDeleteModal() {
+            const modal = document.getElementById('deleteModal');
+            modal.classList.remove('hidden');
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('deleteModal');
+            modal.classList.add('hidden');
+        }
+
+        // Function to handle delete confirmation
+        function confirmDelete() {
+            // Add your delete logic here
+            alert('Course has been deleted successfully!');
+            closeModal();
+        }
+
+        </script>
 
     @endsection

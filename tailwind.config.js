@@ -12,14 +12,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#164A41',
+        primary: '#519652',
         light: '#FBFCF8',
         dark: '#262424',
+        red: '#8D2016',
+        input: '#F6F6F6',
         yellow: '#F1B24A',
         'lime-green': '#9DC88D',
         'moss-green': '#A2B568',
         'light-gray': '#f1f1f1',
-        'gray': '#585858',
         'border-color': '#E0E0E0' ,
       },
       spacing: {
