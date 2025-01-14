@@ -1,5 +1,8 @@
 @extends('layouts.registrar.navbar')
 
+@php
+        $title = 'CVSU - Registar-Students List';
+    @endphp
 
 @section('content')
 
@@ -58,7 +61,7 @@
         </div>
         <div class="flex space-x-2">
             <button
-                class="text-sm text-light bg-gray font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">Export
+                class="text-sm text-light bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">Export
                 as Excel</button>
             <button
                 class="text-sm text-light bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">

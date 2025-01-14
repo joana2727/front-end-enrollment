@@ -25,7 +25,7 @@ export default {
       },
       spacing: {
         'logo': '5rem', // Custom size for logo (width & height)
-        'icon': '2rem', // Custom size for icons (width & height)
+        'icon': '1.2568rem', // Custom size for icons (width & height)
       },
       fontFamily: {
         sans: ['Poppins', ...defaultTheme.fontFamily.sans],

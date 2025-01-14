@@ -1,39 +1,69 @@
 @extends('layouts.admin.navbar')
 
+@php
+        $title = 'CVSU - Admin Dashboard';
+    @endphp
+
 @section('content')
-<!-- Dashboard Stats -->
-<div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 p-5 bg-light rounded-2xl shadow-big w-[100%] mx-auto mt-5">
-    <!-- Card 1 -->
-    <div class="bg-yellow shadow-small rounded-lg p-6 max-w-full flex items-center justify-between">
+
+<!-- Student Count Per Status -->
+<div class="flex flex-wrap gap-4 mb-5 p-2 bg-light-gray rounded-2xl mx-auto mt-1">
+
+    <!-- Regular -->
+    <div class="bg-primary shadow-small rounded-xl p-6 flex-1 flex items-center justify-between relative">
         <div>
-            <h3 class="text-sm font-thin text-gray">Total Number of Users</h3>
-            <p class="text-4xl text-dark font-bold">55</p>
+            <h3 class="text-lg text-white font-semibold">Admin</h3>
+            <p class="text-2xl text-white font-bold">7</p>
         </div>
-        <img src="{{ asset('assets/users-icon.svg') }}" alt="Users Icon" class="ml-4 w-9 h-9">
+        <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-white"></div>
+    <!-- Button with arrow icon -->
+        <button class="absolute bottom-5 right-4 bg-primary text-white p-1 shadow-md hover:bg-gray-100 transition">
+            <i class="fas fa-arrow-right"></i>
+        </button>
     </div>
 
-    <!-- Card 2 -->
-    <div class="bg-lime-green shadow-small rounded-lg p-6 max-w-full flex items-center justify-between">
+    <!-- Irregular -->
+    <div class="bg-primary shadow-small rounded-xl p-6 flex-1 flex items-center justify-between relative">
         <div>
-            <h3 class="text-sm font-thin text-gray">Number of Registrar Users</h3>
-            <p class="text-4xl text-dark font-bold">30</p>
+            <h3 class="text-lg text-white font-semibold">Student</h3>
+            <p class="text-2xl text-white font-bold ">564</p>
         </div>
-        <img src="{{ asset('assets/user-icon.svg') }}" alt="Users Icon" class="ml-4 w-9 h-9">
+        <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-white"></div>
+     <!-- Button with arrow icon -->
+        <button class="absolute bottom-5 right-4 bg-primary text-white p-1 shadow-md hover:bg-gray-100 transition">
+            <i class="fas fa-arrow-right"></i>
+        </button>
     </div>
 
-    <!-- Card 3-->
-    <div class="bg-lime-green shadow-small rounded-lg p-6 max-w-full flex items-center justify-between">
+    <!-- Transferee -->
+    <div class="bg-primary shadow-small rounded-xl p-6 flex-1 flex items-center justify-between relative">
         <div>
-            <h3 class="text-sm font-thin text-gray">Number of Department Users</h3>
-            <p class="text-4xl text-dark font-bold">25</p>
+            <h3 class="text-lg text-white font-semibold">Department</h3>
+            <p class="text-2xl text-white font-bold">89</p>
         </div>
-        <img src="{{ asset('assets/user-icon.svg') }}" alt="Users Icon" class="ml-4 w-9 h-9">
+        <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-white"></div>
+        <!-- Button with arrow icon -->
+        <button class="absolute bottom-5 right-4 bg-primary text-white p-1 shadow-md hover:bg-gray-100 transition">
+            <i class="fas fa-arrow-right"></i>
+        </button>
     </div>
-</div>
+
+    <!-- Returnee -->
+    <div class="bg-primary shadow-small rounded-xl p-6 flex-1 flex items-center justify-between relative">
+        <div>
+            <h3 class="text-lg text-white font-semibold">Registrar</h3>
+            <p class="text-2xl text-white font-bold">3</p>
+        </div>
+        <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-white"></div>
+        <!-- Button with arrow icon -->
+        <button class="absolute bottom-5 right-4 bg-primary text-white p-1 shadow-md hover:bg-gray-100 transition">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+    </div>
 
 <!-- Table Section -->
-<div class="p-5 bg-light rounded-2xl shadow-big w-full mx-auto mb-8">
+<div class="p-5 bg-light rounded-xl shadow-big w-full mx-auto mb-8">
 
     <!-- Title and View All Button -->
     <div class="flex justify-between items-center mb-4">
@@ -46,11 +76,11 @@
     <div class="overflow-x-auto w-full">
         <table class="min-w-full bg-white shadow-sm rounded-lg">
             <thead>
-            <tr class="bg-light-gray">
-                <th class="px-6 py-3 text-left text-sm font-bold text-gray-600">User Id</th>
-                <th class="px-6 py-3 text-left text-sm font-bold text-gray-600">Name</th>
-                <th class="px-6 py-3 text-left text-sm font-bold text-gray-600">Email</th>
-            <th class="px-6 py-3 text-left text-sm font-bold text-gray-600">User Type</th>
+            <tr class="bg-primary">
+                <th class="px-6 py-3 text-left text-sm font-bold text-white">User Id</th>
+                <th class="px-6 py-3 text-left text-sm font-bold text-white">Name</th>
+                <th class="px-6 py-3 text-left text-sm font-bold text-white">Email</th>
+            <th class="px-6 py-3 text-left text-sm font-bold text-white">User Type</th>
             </tr>
             </thead>
             <tbody>

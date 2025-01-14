@@ -17,5 +17,18 @@ class AdminController extends Controller
     {
         return view('admin.users');
     }
+
+    public function studentAccounts() {
+        return view('admin.student-accounts');
+    }
+    
+    public function registrarAccounts() {
+        return view('admin.registrar-accounts');
+    }
+    
+    public function departmentAccounts() {
+        return view('admin.department-accounts');
+    }
+    
 }
 

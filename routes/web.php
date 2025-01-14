@@ -47,9 +47,39 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+
+// Admin Dashboard
 Route::get('/admin-dashboard', function () {
     return view('admin.dashboard');
-});
+})->name('admin.dashboard');
+
+// Admin Users
+Route::get('/admin-users', function () {
+    return view('admin.users');
+})->name('admin.users');
+
+// Student Accounts
+Route::get('/student-accounts', function () {
+    return view('admin.student-accounts');
+})->name('student.accounts');
+
+// Registrar Accounts
+Route::get('/registrar-accounts', function () {
+    return view('admin.registrar-accounts');
+})->name('registrar.accounts');
+
+// Department Accounts
+Route::get('/department-accounts', function () {
+    return view('admin.department-accounts');
+})->name('department.accounts');
+
+// Logout
+Route::post('/logout', function () {
+    // Your logout logic
+    return redirect('/');
+})->name('logout');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -61,7 +91,16 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
-});
+     // Student Accounts
+     Route::get('/student-accounts', [AdminController::class, 'studentAccounts'])->name('student.accounts');
+
+     // Registrar Accounts
+     Route::get('/registrar-accounts', [AdminController::class, 'registrarAccounts'])->name('registrar.accounts');
+ 
+     // Department Accounts
+     Route::get('/department-accounts', [AdminController::class, 'departmentAccounts'])->name('department.accounts');
+ });
+ 
 
 
 Route::get('/registar-dashboard', function () {
