@@ -26,14 +26,14 @@
 
     <!-- Title and View All Button -->
     <div class="flex justify-between items-center mb-4">
-        <h2 class="font-table-header text-xl text-primary">Admin Accounts</h2>
+        <h2 class="font-table-header text-xl text-primary">Department Accounts</h2>
         <div class="flex space-x-2">
             <button
                 class="text-sm text-light bg-primary  font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">Export
                 as Excel</button>
                 <button onclick="openModal()" class="bg-primary text-white px-4 py-2 rounded-lg">
                 <img src="{{ asset('assets/plus.svg') }}" alt="Plus Icon" class="h-5 w-5 inline-block mr-2">
-                Add New Admin</button>
+                Add New Account</button>
 
         </div>
     </div>

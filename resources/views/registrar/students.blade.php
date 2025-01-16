@@ -10,12 +10,12 @@
     <!-- Filter Buttons -->
     <div class="flex space-x-2">
         <button
-            class="text-sm text-dark bg-yellow font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">All</button>
+            class="text-sm text-dark bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">All</button>
         <button
-            class="text-sm  text-dark bg-lime-green font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">IT
+            class="text-sm  text-dark bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">IT
             Courses</button>
         <button
-            class="text-sm text-dark bg-moss-green font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">CS
+            class="text-sm text-dark bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">CS
             Courses</button>
     </div>
 

@@ -18,6 +18,9 @@ Route::get('/', function () {
 // Ensure the route points to the correct controller action
 Route::get('/students/status', [StudentController::class, 'status'])->name('students.status');
 
+Route::get('/student/login', function () {
+    return view('student.login');  // Points to the student/login.blade.php view
+})->name('student.login');
 
 // Route for the dashboard
 Route::get('/student-dashboard', function () {
@@ -101,7 +104,9 @@ Route::prefix('admin')->group(function () {
      Route::get('/department-accounts', [AdminController::class, 'departmentAccounts'])->name('department.accounts');
  });
  
-
+ Route::get('/registar/login', function () {
+    return view('registar.login');  // Points to the registrar/login.blade.php view
+})->name('registar.login');
 
 Route::get('/registar-dashboard', function () {
     return view('registar.registar-dashboard'); // Ensure this matches your view file's location
@@ -115,6 +120,10 @@ Route::get('/registar/issue-cor', function () {
     return view('registar.issue-cor'); // Ensure this matches your view file's location
 })->name('registar.issue-cor');
 
+
+Route::get('/department/login', function () {
+    return view('department.login');  // Points to the registrar/login.blade.php view
+})->name('department.login');
 
 Route::prefix('department')->group(function () {
     Route::get('/dashboard', function () {

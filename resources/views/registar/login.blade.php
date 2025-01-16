@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>CVSU - Admin Login</title>
+    <title>CVSU - Registrar Login</title>
     <link rel="icon" href="{{ asset('assets/cvsu.svg') }}" type="image/svg+xml">
     @vite('resources/css/app.css')
 </head>
@@ -26,7 +26,7 @@
                     <span class="text-primary font-bold">Cavite State University - Bacoor City Campus</span>
                 </div>
                 <h1 class="text-sm font-semibold mt-3">
-                    <span class="font-bold">Welcome Admin!</span><br>
+                    <span class="font-bold">Welcome Registrar!</span><br>
                     <span class="text-xs text-gray-600 font-medium">Login to your account</span>
                 </h1>
             </div>
@@ -35,7 +35,7 @@
 
                <!-- Email Address -->
                 <div>
-                    <x-input-label for="email" :value="__('Admin ID')" />
+                    <x-input-label for="email" :value="__('Email or Registrar ID')" />
                     <x-text-input id="email" class="block mt-1 w-full h-9" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>

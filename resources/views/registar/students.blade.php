@@ -12,11 +12,11 @@
     <!-- Buttons -->
     <div class="flex space-x-2">
         <button
-            class="text-sm text-dark bg-yellow font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">All</button>
+            class="text-sm text-white bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">All</button>
         <button
-            class="text-sm  text-dark bg-lime-green font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">Computer Science</button>
+            class="text-sm  text-white bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">Computer Science</button>
         <button
-            class="text-sm text-dark bg-moss-green font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">Information Technology</button>
+            class="text-sm text-white bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">Information Technology</button>
     </div>
     <!-- Search Bar Section -->
     <div class="relative">
@@ -66,7 +66,7 @@
             <button
                 class="text-sm text-light bg-primary font-semibold px-4 py-2 rounded-lg hover:bg-primary hover:text-white">
                 <img src="{{ asset('assets/plus.svg') }}" alt="Plus Icon" class="h-5 w-5 inline-block mr-2">
-                Add Course
+                Add Student
             </button>
         </div>
     </div>

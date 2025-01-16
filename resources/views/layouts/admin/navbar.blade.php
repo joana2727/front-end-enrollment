@@ -36,12 +36,11 @@
         </li>
     </a>
 
-    <li class="flex flex-col items-start w-full px-4 py-3">
-    <div class="flex items-center w-full hover:bg-green-500 transition duration-200 ease-in-out" onclick="toggleAccounts()">
-        <img src="{{ asset('assets/user.svg') }}" alt="Accounts Icon" class="h-icon w-icon mr-4"> <!-- Add icon here -->
-        <span class="text-sm font-semibold font-poppins">Accounts</span>
-    </div>
-        <!-- Nested Links -->
+    <li id="accounts-div" class="flex flex-col items-start w-full px-4 py-3">
+        <div class="flex items-center w-full hover:bg-green-500 transition duration-200 ease-in-out" onclick="toggleAccounts()">
+            <img src="{{ asset('assets/user.svg') }}" alt="Accounts Icon" class="h-icon w-icon mr-4">
+            <span class="text-sm font-semibold font-poppins">Accounts</span>
+        </div>
         <ul id="accounts-links" class="ml-4 space-y-2 mt-2 hidden">
             <a href="{{ route('student.accounts') }}">
                 <li class="flex items-center w-full px-4 py-3 hover:bg-green-500 transition duration-200 ease-in-out">
@@ -164,6 +163,28 @@
             dropdownMenu.classList.add('hidden');
         }
     });
+
+            document.addEventListener('DOMContentLoaded', () => {
+            // Select all top-level list items except nested ones
+            const navItems = document.querySelectorAll('.w-full > a > li');
+
+            navItems.forEach((item) => {
+                // Add a click event listener to each top-level nav item
+                item.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default behavior if necessary
+
+                    // Remove 'bg-green-500' from all nav items
+                    navItems.forEach((navItem) => {
+                        navItem.classList.remove('bg-green-500');
+                    });
+
+                    // Add 'bg-green-500' to the clicked item
+                    item.classList.add('bg-green-500');
+                });
+            });
+        });
+
+
     </script>
 </body>
 

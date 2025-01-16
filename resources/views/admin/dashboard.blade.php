@@ -15,24 +15,18 @@
             <h3 class="text-lg text-white font-semibold">Admin</h3>
             <p class="text-2xl text-white font-bold">7</p>
         </div>
-        <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-white"></div>
-    <!-- Button with arrow icon -->
-        <button class="absolute bottom-5 right-4 bg-primary text-white p-1 shadow-md hover:bg-gray-100 transition">
-            <i class="fas fa-arrow-right"></i>
-        </button>
+        <div class="absolute top-3 right-4 w-2 h-2 rounded-full bg-white"></div>
+        <img src="{{ asset('assets/users.svg') }}" alt="Users Icon" class="h-9 w-9">
     </div>
 
     <!-- Irregular -->
     <div class="bg-primary shadow-small rounded-xl p-6 flex-1 flex items-center justify-between relative">
         <div>
             <h3 class="text-lg text-white font-semibold">Student</h3>
-            <p class="text-2xl text-white font-bold ">564</p>
+            <p class="text-2xl text-white font-bold">564</p>
         </div>
-        <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-white"></div>
-     <!-- Button with arrow icon -->
-        <button class="absolute bottom-5 right-4 bg-primary text-white p-1 shadow-md hover:bg-gray-100 transition">
-            <i class="fas fa-arrow-right"></i>
-        </button>
+        <div class="absolute top-3 right-4 w-2 h-2 rounded-full bg-white"></div>
+        <img src="{{ asset('assets/users.svg') }}" alt="Users Icon" class="h-9 w-9">
     </div>
 
     <!-- Transferee -->
@@ -41,11 +35,8 @@
             <h3 class="text-lg text-white font-semibold">Department</h3>
             <p class="text-2xl text-white font-bold">89</p>
         </div>
-        <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-white"></div>
-        <!-- Button with arrow icon -->
-        <button class="absolute bottom-5 right-4 bg-primary text-white p-1 shadow-md hover:bg-gray-100 transition">
-            <i class="fas fa-arrow-right"></i>
-        </button>
+        <div class="absolute top-3 right-4 w-2 h-2 rounded-full bg-white"></div>
+        <img src="{{ asset('assets/users.svg') }}" alt="Users Icon" class="h-9 w-9">
     </div>
 
     <!-- Returnee -->
@@ -54,13 +45,12 @@
             <h3 class="text-lg text-white font-semibold">Registrar</h3>
             <p class="text-2xl text-white font-bold">3</p>
         </div>
-        <div class="absolute top-3 right-4 w-4 h-4 rounded-full bg-white"></div>
-        <!-- Button with arrow icon -->
-        <button class="absolute bottom-5 right-4 bg-primary text-white p-1 shadow-md hover:bg-gray-100 transition">
-            <i class="fas fa-arrow-right"></i>
-        </button>
+        <div class="absolute top-3 right-4 w-2 h-2 rounded-full bg-white"></div>
+        <img src="{{ asset('assets/users.svg') }}" alt="Users Icon" class="h-9 w-9">
     </div>
-    </div>
+</div>
+
+
 
 <!-- Table Section -->
 <div class="p-5 bg-light rounded-xl shadow-big w-full mx-auto mb-8">
